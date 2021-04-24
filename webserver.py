@@ -32,7 +32,8 @@ STAV_KEY = '123'
 
 @app.route('/')
 def home_page():
-   return render_template("home.html")
+#    return render_template("home.html")
+   return render_template("styled_index.html")
 
 @app.route("/tiles")
 def  tiles_resources():
