@@ -3,6 +3,7 @@ from flask import Flask, request, redirect, flash
 from flask import render_template
 import mysql.connector
 
+
 app = Flask(__name__)
 mydb = mysql.connector.connect(
    host="localhost",
@@ -11,11 +12,23 @@ mydb = mysql.connector.connect(
    database="helpfulresources"
 )
 
+
 mycursor = mydb.cursor()
+UPLOAD_FOLDER = '/UPLOAD_FOLDER'
+app.config['UPLOAD_FOLDER'] = 'UPLOAD_FOLDER'
+app.config['MAX_CONTENT_PATH'] = '100000000000000'
+
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+
+
+
 
 app.config['SECRET_KEY'] = "SECRET_KEY"
 
 STAV_KEY = '123'
+
+
+
 
 @app.route('/')
 def home_page():
@@ -41,6 +54,9 @@ def inputs():
         sql = "INSERT INTO links (Subjects, Resource_2) VALUES (%s, %s)"
         val = (Subjects, Resource2)
         mycursor.execute(sql, val)
+        f = request.files['file']
+        f.save(f.filename)
+        return 'file uploaded successfully'
         mydb.commit()
         return redirect("/tiles")
     return render_template('input.html')
@@ -74,7 +90,9 @@ def prayer_inputs():
         mydb.commit()
         return redirect("/auth_page")
     return render_template('prayer_input.html')
-
+		
 if __name__ == '__main__':
-   app.run(debug=True)
+   app.run(debug = True)
+
+
 

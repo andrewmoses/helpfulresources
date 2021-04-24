@@ -9,23 +9,21 @@
 
     <div class="container my-3">
         <h2>Create Resource</h2>
-        <form method="POST">
-            <div class="mb-3">
-              <label for="text" class="form-label">Name of Subject</label>
-              <input type="text" class="form-control" name="Subjects" id="Subjects"  aria-describedby="emailHelp"> 
-            </div>
-            <div class="mb-3">
-              <label for="text" class="form-label">Display Image URL</label>
-              <input type="text" class="form-control" name="Resource_2" id="Resource2">
-            </div>
-            <!--<div class="mb-3">
-              <label for="file" class="form-label">Upload resource</label>
-              <input type="file" class="from-control" name="Resources" id="Resources" accept="application/pdf">
-            </div> -->  
-            <button type="submit" class="btn btn-dark">Submit</button>
-          </form>
-    </div>
-
+        <form action = "/input" method="POST"  enctype = "multipart/form-data">
+          <div class="mb-3">
+            <label for="text" class="form-label">Name of Subject</label>
+            <input type="text" class="form-control" name="Subjects" id="Subjects"  aria-describedby="emailHelp"> 
+          </div>
+          <div class="mb-3">
+            <label for="text" class="form-label">Display Image URL</label>
+            <input type="text" class="form-control" name="Resource_2" id="Resource2">
+          </div>
+           
+            <input type = "file" name = "file" /> 
+            <input type = "submit"/>
+         </form>
+        </div>
+        
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
