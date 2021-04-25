@@ -2,6 +2,7 @@
 from flask import Flask, request, redirect, flash
 from flask import render_template
 import mysql.connector
+import pathlib
 
 
 app = Flask(__name__)
@@ -52,8 +53,9 @@ def inputs():
     if request.method=='POST':
         Subjects = request.form['Subjects']
         Resource2 = request.form['Resource_2']
-        sql = "INSERT INTO links (Subjects, Resource_2) VALUES (%s, %s)"
-        val = (Subjects, Resource2)
+        Videolink = request.form['Video_Link']
+        sql = "INSERT INTO links (Subjects, Resource_2, Video_Link) VALUES (%s, %s, %s)"
+        val = (Subjects, Resource2, Videolink)
         mycursor.execute(sql, val)
         f = request.files['file']
         f.save(f.filename)

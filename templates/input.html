@@ -11,12 +11,16 @@
         <h2>Create Resource</h2>
         <form action = "/input" method="POST"  enctype = "multipart/form-data">
           <div class="mb-3">
-            <label for="text" class="form-label">Name of Subject</label>
+            <label for="text" class="form-label">Resource Name</label>
             <input type="text" class="form-control" name="Subjects" id="Subjects"  aria-describedby="emailHelp"> 
           </div>
           <div class="mb-3">
-            <label for="text" class="form-label">Display Image URL</label>
+            <label for="text" class="form-label">Description</label>
             <input type="text" class="form-control" name="Resource_2" id="Resource2">
+          </div>
+          <div class="mb-3">
+            <label for="text" class="form-label">Youtube Video Link (please copy embed code)</label>
+            <input type="text" class="form-control" name="Video_Link" id="Videolink">
           </div>
            
             <input type = "file" name = "file" /> 
