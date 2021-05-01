@@ -5,26 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <!-- <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script> -->
+    <!-- Google fonts-->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" /> -->
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- <link href="static/css/styles.css" rel="stylesheet" /> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/index.css') }}">
-    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/base.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/#">Home</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/prayer_input">Create</a>
-              </li>
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark pagenav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/auth_page"><img class="logo"src="{{ url_for('static', filename='/images/image2vector.svg') }}" alt="" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+        <div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" align="right">
+          <li>
+            <a class="nav-link active"  aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item" id="create" >
+            <a class="nav-link active"  aria-current="page" href="/prayer_input">Create</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+         <!-- Navigation-->
+        <!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="static/assets/img/navbar-logo.svg" alt="" /></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">HOME</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/prayer_input">Create</a></li>
+                     
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
       {% block body %}
 
       {% endblock body %}
