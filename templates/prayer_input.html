@@ -1,28 +1,65 @@
-{% extends 'base.html' %}
-{% block title %} Home{% endblock title %} 
-{% block body %}
-
-    <div class="container my-3">
-        <h2>Create Prayer</h2>
-        <form method="POST">
-            <div class="mb-3">
-              <label for="tag" class="form-label">Prayer</label>
-              <input type="text" class="form-control" name="point" id="point"  aria-describedby="emailHelp"> 
-            </div>
-            <div class="mb-3">
-              <label for="tag" class="form-label">Prayer Tag</label>
-              <input type="text" class="form-control" name="tag" id="tag">
-            </div>
-
-            <button type="submit" class="btn btn-warning">Submit</button>
-          </form>
+{% extends 'base.html' %} 
+{% block title %} 
+Home{% endblock title %} 
+{% block  body %}
+  
+  <div class="container my-3">
+    <h2>Create Prayer</h2>
+    <form method="POST">
+      <div class="mb-3">
+        <label for="point" class="form-label">Prayer for</label>
+        <textarea
+          type="text"
+          class="form-control"
+          name="point"
+          id="point"
+          aria-describedby="emailHelp"
+          rows="5"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="tag" class="form-label">Praise God for</label>
+        <textarea type="text" class="form-control" name="tag" id="tag" rows="5"></textarea>
+      </div>
+  
+      <div class="collegelist">
+        <label for=colleges">Choose your college.</label>
+  <input list="college" name="colleges" id="colleges">
+  
+  <datalist id="college">
+    <option value="Edge">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist>
+      </div>
+  
+      <div class="place"></div>
+      <label for="place">Area:</label>
+      <select id="place" name="place" required>
+  
+        <option value="">None</option>
+        <option value="Anna Nagar">Anna Nagar Area</option>
+        <option value="Tambaram Area">Tambaram Area</option>
+        <option value="Adyar Area">Adyar Area</option>
+        <option value="Vepery Area">Vepery Area</option>
+        <option value="Porur Area">Porur Area</option>
+        <option value="Triplicane Area">Triplicane Area</option>
+        <option value="Avadi Area">Avadi Area</option>
+        <option value="Other">Other</option>
+      </select>
     </div>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
-
-    
-
-{% endblock body %}
+      <button type="button" class="btn btn-warning" >Create</button>
+    </form>
+  </div>
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"
+  ></script>
+  
+  
+  
+  {% endblock body %}
