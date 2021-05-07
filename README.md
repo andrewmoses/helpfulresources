@@ -1,5 +1,8 @@
 # create data base name : helpfulresources
 
-# added by andrew
+## Environment setup: 
+Xampp : https://www.apachefriends.org/index.html
+Ananconda: https://www.anaconda.com/products/individual#Downloads 
 
-# added by harish
+## DB
+Use helpfulresources.sql file
