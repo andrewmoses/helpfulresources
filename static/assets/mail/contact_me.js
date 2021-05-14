@@ -1,6 +1,6 @@
 $(function () {
     $(
-        "#contactForm input,#contactForm textarea,#contactForm button"
+        "#contactForm1 input,#contactForm1 textarea,#contactForm1 button"
     ).jqBootstrapValidation({
         preventSubmit: true,
         submitError: function ($form, event, errors) {
@@ -43,7 +43,7 @@ $(function () {
                     );
                     $("#success > .alert-success").append("</div>");
                     //clear all fields
-                    $("#contactForm").trigger("reset");
+                    $("#contactForm1").trigger("reset");
                 },
                 error: function () {
                     // Fail message
@@ -62,7 +62,7 @@ $(function () {
                     );
                     $("#success > .alert-danger").append("</div>");
                     //clear all fields
-                    $("#contactForm").trigger("reset");
+                    $("#contactForm1").trigger("reset");
                 },
                 complete: function () {
                     setTimeout(function () {

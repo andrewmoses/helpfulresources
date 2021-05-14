@@ -6,3 +6,7 @@ Ananconda: https://www.anaconda.com/products/individual#Downloads
 
 ## DB
 Use helpfulresources.sql file
+
+## package
+
+pip install mysql-connector-python

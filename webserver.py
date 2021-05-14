@@ -46,7 +46,7 @@ def  tiles_resources():
 def get_product(name):
    mycursor.execute("""SELECT * FROM links where PK=%s""" % (int(name)))
    myresult = mycursor.fetchall()
-   return render_template("article.html", myresult=myresult)
+   return render_template("styled_article.html", myresult=myresult[0])
 
 @app.route('/input', methods=['GET', 'POST'])
 def inputs():
@@ -54,15 +54,14 @@ def inputs():
         Subjects = request.form['Subjects']
         Resource2 = request.form['Resource_2']
         Videolink = request.form['Video_Link']
-        sql = "INSERT INTO links (Subjects, Resource_2, Video_Link) VALUES (%s, %s, %s)"
+        sql = "INSERT INTO links (Subjects, Resource_2, youtubelink) VALUES (%s, %s, %s)"
         val = (Subjects, Resource2, Videolink)
         mycursor.execute(sql, val)
         f = request.files['file']
         f.save(f.filename)
-        return 'file uploaded successfully'
         mydb.commit()
         return redirect("/tiles")
-    return render_template('input.html')
+    return render_template('styled_createarticle.html')
 
 @app.route('/auth_page', methods=['GET', 'POST'])
 def auth_page():

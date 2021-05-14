@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2021 at 08:02 PM
+-- Generation Time: May 14, 2021 at 07:58 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -30,21 +30,23 @@ SET time_zone = "+00:00";
 CREATE TABLE `links` (
   `PK` int(11) NOT NULL,
   `Subjects` text NOT NULL,
-  `Resource_2` text NOT NULL
+  `Resource_2` text NOT NULL,
+  `youtubelink` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `links`
 --
 
-INSERT INTO `links` (`PK`, `Subjects`, `Resource_2`) VALUES
-(1, 'Computer Science', 'https://www.openaccessgovernment.org/wp-content/uploads/2020/08/dreamstime_l_124110584.jpg'),
-(2, 'Physics', 'https://images.theconversation.com/files/191827/original/file-20171025-25516-g7rtyl.jpg?ixlib=rb-1.1.0&rect=0%2C70%2C7875%2C5667&q=45&auto=format&w=926&fit=clip'),
-(3, 'Math', 'https://miro.medium.com/max/875/1*L76A5gL6176UbMgn7q4Ybg.jpeg'),
-(4, 'Chemistry ', 'https://res.cloudinary.com/grand-canyon-university/image/fetch/w_750,h_564,c_fill,g_faces,q_auto,f_auto/https://www.gcu.edu/sites/default/files/media/images/Blog/engineering-and-technology/chemistry-materials.jpg'),
-(5, 'Geography', 'https://mk0kaleelao979sb1ktf.kinstacdn.com/wp-content/uploads/2019/08/Geography-Terms-In-Arabic-Language.jpg'),
-(6, 'History', 'https://i0.wp.com/wsap.academy/wp-content/uploads/2015/03/1123676.jpg?zoom=1.25&resize=700%2C466'),
-(7, 'test subject andy', 'https://img.jagranjosh.com/images/2021/April/1942021/Vera-gedroits-biography.jpg');
+INSERT INTO `links` (`PK`, `Subjects`, `Resource_2`, `youtubelink`) VALUES
+(1, 'Quiet Time', 'small description about the article', NULL),
+(2, 'Physics', 'https://images.theconversation.com/files/191827/original/file-20171025-25516-g7rtyl.jpg?ixlib=rb-1.1.0&rect=0%2C70%2C7875%2C5667&q=45&auto=format&w=926&fit=clip', NULL),
+(3, 'Math', 'https://miro.medium.com/max/875/1*L76A5gL6176UbMgn7q4Ybg.jpeg', NULL),
+(4, 'Chemistry ', 'https://res.cloudinary.com/grand-canyon-university/image/fetch/w_750,h_564,c_fill,g_faces,q_auto,f_auto/https://www.gcu.edu/sites/default/files/media/images/Blog/engineering-and-technology/chemistry-materials.jpg', NULL),
+(5, 'Geography', 'https://mk0kaleelao979sb1ktf.kinstacdn.com/wp-content/uploads/2019/08/Geography-Terms-In-Arabic-Language.jpg', NULL),
+(6, 'History', 'https://i0.wp.com/wsap.academy/wp-content/uploads/2015/03/1123676.jpg?zoom=1.25&resize=700%2C466', NULL),
+(7, 'test subject andy', 'https://img.jagranjosh.com/images/2021/April/1942021/Vera-gedroits-biography.jpg', NULL),
+(10, 'Bible study workshop', 'a sample description about the workshop', 'https://youtu.be/1uzwF-abeR4');
 
 -- --------------------------------------------------------
 
@@ -82,7 +84,7 @@ ALTER TABLE `links`
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
-  MODIFY `PK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `PK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

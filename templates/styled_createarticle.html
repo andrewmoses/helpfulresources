@@ -1,0 +1,49 @@
+{% extends 'styled_base.html' %}
+{% block body %}
+
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Create Resource</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <form id="contactForm1" action = "/input" method="POST"  enctype = "multipart/form-data">
+            <div class="row align-items-stretch mb-5">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input name="Subjects" class="form-control" id="name" type="text" placeholder="Resource Name *"  data-validation-required-message="Please enter resource name." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <input name="Video_Link" class="form-control" id="name" type="text" placeholder="Youtube link *"  data-validation-required-message="Please enter youtube link." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <input type = "file" name = "file" data-validation-required-message="Please select a file." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <!-- <div class="form-group">
+                        <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address." />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group mb-md-0">
+                        <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." />
+                        <p class="help-block text-danger"></p>
+                    </div> -->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-textarea mb-md-0">
+                        <textarea name = "Resource_2" class="form-control" id="message" placeholder="Description *" data-validation-required-message="Please enter a description."></textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary btn-xl text-uppercase" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock body %}
