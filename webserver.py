@@ -27,7 +27,7 @@ ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['SECRET_KEY'] = "SECRET_KEY"
 
 STAV_KEY = '123'
-
+CREATE_KEY = '456'
 
 
 
@@ -79,6 +79,21 @@ def auth_page():
                 flash('Incorrect password')
 
     return render_template('auth.html')
+
+@app.route('/create_auth', methods=['GET', 'POST'])
+def create_auth():
+    error = None
+    if request.method == "POST" : 
+            key = request.form['key']
+
+            if key == CREATE_KEY :
+                # who = 'stavin'
+                return redirect("/prayer_input")
+        
+            else:
+                flash('Incorrect password')
+
+    return render_template('create_auth.html')
 
 
 @app.route('/prayer_input', methods=['GET', 'POST'])
