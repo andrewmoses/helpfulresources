@@ -1,11 +1,11 @@
-# create data base name : helpfulresources
+# create data base name : helperdb
 
 ## Environment setup: 
 Xampp : https://www.apachefriends.org/index.html
 Ananconda: https://www.anaconda.com/products/individual#Downloads 
 
 ## DB
-Use helpfulresources.sql file
+Use helperdb.sql file
 
 ## package
 
