@@ -111,6 +111,12 @@ def prayer_inputs():
 @app.route("/textbox")
 def textbox():
     return render_template('textbox.html')
+
+@app.route("/textbox_data", methods=['POST'])
+def textbox_data():
+    ta_data = request.form['mytextarea']
+    print(ta_data)
+    return 'got the data'
 		
 if __name__ == '__main__':
    app.run(debug = True)
