@@ -107,6 +107,10 @@ def prayer_inputs():
         mydb.commit()
         return redirect("/auth_page")
     return render_template('prayer_input.html')
+
+@app.route("/textbox")
+def textbox():
+    return render_template('textbox.html')
 		
 if __name__ == '__main__':
    app.run(debug = True)

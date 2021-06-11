@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2021 at 09:59 PM
+-- Generation Time: Jun 11, 2021 at 07:22 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -72,8 +72,7 @@ INSERT INTO `login` (`passcode`, `type`) VALUES
 CREATE TABLE `prayerlogs` (
   `id` int(11) NOT NULL,
   `prayercellid` int(11) DEFAULT NULL,
-  `thankfor` text,
-  `prayfor` text,
+  `body` text,
   `e_datetime` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -81,8 +80,8 @@ CREATE TABLE `prayerlogs` (
 -- Dumping data for table `prayerlogs`
 --
 
-INSERT INTO `prayerlogs` (`id`, `prayercellid`, `thankfor`, `prayfor`, `e_datetime`) VALUES
-(1, 1, 'being good', 'regular functioning', '2021-06-04 03:05:13');
+INSERT INTO `prayerlogs` (`id`, `prayercellid`, `body`, `e_datetime`) VALUES
+(1, 1, 'being good', '2021-06-04 03:05:13');
 
 -- --------------------------------------------------------
 
