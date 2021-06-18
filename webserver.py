@@ -3,6 +3,7 @@ from flask import Flask, request, redirect, flash
 from flask import render_template
 import mysql.connector
 import pathlib
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
 
 app = Flask(__name__)
@@ -12,6 +13,15 @@ mydb = mysql.connector.connect(
    password="",
    database="helpfulresources"
 )
+
+def mysql_obj():
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="helperdb"
+    )
+    return mydb
 
 
 mycursor = mydb.cursor()
@@ -29,7 +39,42 @@ app.config['SECRET_KEY'] = "SECRET_KEY"
 STAV_KEY = '123'
 CREATE_KEY = '456'
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = '/login'
 
+class User(UserMixin):
+    def __init__(self, id, us_type, active=True):
+        self.id = id
+        self.us_type = us_type
+        self.active = active
+    
+    def is_active(self):
+        return self.active
+
+    def is_anonymous(self):
+        return False
+
+    def is_authenticated(self):
+        return True
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    # using user_id query and get the other details
+    mydb = mysql_obj()
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM login where passcode='%s'" % (user_id))
+    myresult = mycursor.fetchall()
+    # get the id and pass to User class
+    if len(myresult)>=1:
+        mycursor.close()
+        mydb.close()
+        return User(myresult[0][0], myresult[0][1])
+    else:
+        mycursor.close()
+        mydb.close()
+        return None
 
 @app.route('/')
 def home_page():
@@ -117,7 +162,37 @@ def textbox_data():
     ta_data = request.form['mytextarea']
     print(ta_data)
     return 'got the data'
-		
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+@app.route("/login_action", methods=['POST'])
+def login_action():
+    #validate passcode
+    mydb = mysql_obj()
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM login where passcode='%s'" % (request.form['passcode']))
+    myresult = mycursor.fetchall()
+    # get the id and pass to User class
+    if len(myresult)>=1:
+        mycursor.close()
+        mydb.close()
+        user = User(myresult[0][0], myresult[0][1])
+        login_user(user)
+        return redirect("/")
+    else:
+        mycursor.close()
+        mydb.close()
+        return "invalide passcode"
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return "user logged out"
+
+    
 if __name__ == '__main__':
    app.run(debug = True)
 

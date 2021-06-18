@@ -29,10 +29,17 @@
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/auth_page">Prayers</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/tiles">Resources</a></li>
+                        {% if current_user.us_type %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout">Logout</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
+                        {% endif %}
+                        
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- <p>{{current_user.us_type}}</p> -->
         <!-- Masthead-->
         {% block body %}
 

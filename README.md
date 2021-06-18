@@ -10,3 +10,4 @@ Use helperdb.sql file
 ## package
 
 pip install mysql-connector-python
+pip install flask-login
