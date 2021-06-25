@@ -21,6 +21,9 @@
                 <div class="portfolio-caption">
                     <div class="portfolio-caption-heading">{{each[1]}}</div>
                     <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                    {% if current_user.us_type %}
+                    <div class="portfolio-caption-edit"><a class="portfolio-caption-edit" href="/edit/{{each[0]}}">Edit</a></div>
+                    {% endif %}
                 </div>
             </div>
         </div>

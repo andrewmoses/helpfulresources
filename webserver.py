@@ -83,30 +83,57 @@ def home_page():
 
 @app.route("/tiles")
 def  tiles_resources():
-   mycursor.execute("SELECT * FROM links")
+   mydb = mysql_obj()
+   mycursor = mydb.cursor()
+   mycursor.execute("SELECT * FROM articles")
    myresult = mycursor.fetchall()
    return render_template("tiles.html", myresult=myresult)
 
 @app.route('/tiles/<name>')
 def get_product(name):
-   mycursor.execute("""SELECT * FROM links where PK=%s""" % (int(name)))
+   mydb = mysql_obj()
+   mycursor = mydb.cursor()
+   mycursor.execute("""SELECT * FROM articles where id=%s""" % (int(name)))
    myresult = mycursor.fetchall()
    return render_template("styled_article.html", myresult=myresult[0])
 
 @app.route('/input', methods=['GET', 'POST'])
 def inputs():
+    mydb = mysql_obj()
+    mycursor = mydb.cursor()
     if request.method=='POST':
-        Subjects = request.form['Subjects']
-        Resource2 = request.form['Resource_2']
-        Videolink = request.form['Video_Link']
-        sql = "INSERT INTO links (Subjects, Resource_2, youtubelink) VALUES (%s, %s, %s)"
-        val = (Subjects, Resource2, Videolink)
+        Title = request.form['Title']
+        Description = request.form['Description']
+        Body = request.form['Body']
+        Author = request.form['Author']
+        sql = "INSERT INTO articles (Title, Description, Body, Author) VALUES (%s, %s, %s, %s)"
+        val = (Title, Description, Body, Author)
         mycursor.execute(sql, val)
         f = request.files['file']
         f.save(f.filename)
         mydb.commit()
         return redirect("/tiles")
     return render_template('styled_createarticle.html')
+
+@app.route('/edit/<name>', methods=['GET', 'POST'])
+def edits(name):
+    mydb = mysql_obj()
+    mycursor = mydb.cursor()
+    #if request.method=='POST':
+    mycursor.execute("""SELECT * FROM articles where id=%s""" % (int(name)))
+    myresult = mycursor.fetchall()
+    return render_template("styled_editarticle.html", myresult=myresult[0])
+        #Subjects = request.form['Subjects']
+        #Resource2 = request.form['Resource_2']
+        #Videolink = request.form['Video_Link']
+        #sql = "INSERT INTO links (Subjects, Resource_2, youtubelink) VALUES (%s, %s, %s)"
+        #val = (Subjects, Resource2, Videolink)
+        #mycursor.execute(sql, val)
+        #f = request.files['file']
+        #f.save(f.filename)
+        #mydb.commit()
+        #return redirect("/tiles")
+    #return render_template('styled_editarticle.html')
 
 @app.route('/auth_page', methods=['GET', 'POST'])
 def auth_page():

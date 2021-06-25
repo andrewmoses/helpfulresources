@@ -4,26 +4,27 @@
 <section class="page-section" id="contact">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Create Resource</h2>
+            <h2 class="section-heading text-uppercase">Edit Resource</h2>
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
         <form id="contactForm1" action = "/input" method="POST"  enctype = "multipart/form-data">
             <div class="row align-items-stretch mb-5">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input name="Title" class="form-control" id="name" type="text" placeholder="Resource Name *"  data-validation-required-message="Please enter resource name." />
+                        <input name="Title" value="{{myresult[1]}}" class="form-control" id="name" type="text" placeholder="Resource Name *"  data-validation-required-message="Please enter resource name." />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
-                        <input name="Description" class="form-control" id="name" type="text" placeholder="Description *"  data-validation-required-message="Please enter description." />
+                        <input name="Description" value="{{myresult[2]}}" class="form-control" id="name" type="text" placeholder="Description *"  data-validation-required-message="Please enter description." />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
-                        <input name="Body" class="form-control" id="name" type="text" placeholder="Body *"  data-validation-required-message="Please enter body." />
+                        <input name="Body" value="{{myresult[3]}}" class="form-control" id="name" type="text" placeholder="Body *"  data-validation-required-message="Please enter body." />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
-                        <input name="Author" class="form-control" id="name" type="text" placeholder="Author *"  data-validation-required-message="Please enter author." />
+                        <input name="Author" value="{{myresult[4
+                            ]}}" class="form-control" id="name" type="text" placeholder="Author *"  data-validation-required-message="Please enter author." />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
